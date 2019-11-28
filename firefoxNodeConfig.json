@@ -1,0 +1,27 @@
+{
+  "capabilities":
+  [
+    {
+      "browserName": "firefox",
+      "marionette": true,
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
+    }
+  ],
+  "maxSession": 2,
+  "port": 4343,
+  "register": true,
+  "registerCycle": 5000,
+  "hub": "http://localhost:3333",
+  "nodeStatusCheckTimeout": 5000,
+  "newSessionWaitTimeout": 30,
+  "timeout": 30,
+  "nodePolling": 5000,
+  "role": "node",
+  "unregisterIfStillDownAfter": 60000,
+  "downPollingLimit": 2,
+  "debug": true,
+  "servlets" : [],
+  "withoutServlets": [],
+  "custom": {}
+}

@@ -1,0 +1,26 @@
+{
+  "capabilities":
+  [
+    {
+      "browserName": "chrome",
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
+    }
+  ],
+  "maxSession": 2,
+  "port": 3434,
+  "register": true,
+  "registerCycle": 5000,
+  "hub": "http://localhost:3333",
+  "nodeStatusCheckTimeout": 5000,
+  "newSessionWaitTimeout": 30
+  "timeout": 30 
+  "nodePolling": 5000,
+  "role": "node",
+  "unregisterIfStillDownAfter": 60000,
+  "downPollingLimit": 2,
+  "debug": true,
+  "servlets" : [],
+  "withoutServlets": [],
+  "custom": {}
+}
