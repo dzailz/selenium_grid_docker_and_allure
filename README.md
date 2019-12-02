@@ -1,7 +1,7 @@
 # Selenium Grid.
 ## Запускаем Selenium Grid локально.
 ***
-### Установка openJDK
+#### Установка openJDK
 Для работы с гридом необходимо установить Java
 1. Установка на Ubuntu 19.04:
 Запускаем терминал выполняем следующие команды:
@@ -16,27 +16,112 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
     - Скачанный архив распаковываем и размещаем в удобное для вас место
     - Необходимо прописать в PATH путь до файлов с Java
 ***
-### Подготовка к запуску Selenium GRID
-- Необходимо скачать сам GRID
-    - Переходим по ссылке https://selenium.dev/downloads/
-    - Качаем "Latest stable version". На момент написания руководства это "3.141.59"
-    - Скачанный *.jar файл размещаем где удобно
-#### Теперь мы готовы к запуску HUB'а и NOD
+#### Подготовка к запуску Selenium GRID
+- Переходим по ссылке https://selenium.dev/downloads/
+- Качаем "Latest stable version". На момент написания руководства это "3.141.59"
+- Скачанный *.jar файл размещаем где удобно
 ***
-### Запускаем Хаб и НОДы локально, передавая параметры через командную строку
+#### Запускаем Хаб и НОДы локально, передавая параметры через командную строку
 1. Стартуем Хаб `java -jar selenium-server-standalone.jar -role hub -host 127.0.0.1.` Хаб будет доступен по адресу http://localhost:4444
 2. Стартуем НОДы `java -jar selenium-server-standalone.jar -role node -hub http://localhost:4444`
 Каждое действие необходимо выполнять в отдельном окне терминала
 Вы можете запустить столько нод сколько вам нужно или сколько позволит вам производительность вашего компьютера.
 НОДа по умолчанию стартует с 5 сессиями для FireFox и Chrome (для ОС Linux).
 
-Теперь мы готовы запускать тесты на гриде!
+##### Теперь мы готовы запускать тесты на гриде!
 ***
-### Запуск тестов на Гриде
+#### Запуск тестов на Гриде
 Для запуска тестов на гриде необходимо в pytest передать параметр `--executor=http://localhost:4444/wd/hub`
 строка запуска может иметь следующий вид:
 `py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --platform=windows --domain=https://staging1.int.stepik.org -n3`
 ***
-### Остановка запущеных НОД и ХАБа
+#### Остановка запущеных НОД и ХАБа
 Для остановки запущеных процессов необходимо использовать комбинацию клавиш `CTRL+C`
+***
+### Добавляем настройки для нод и хаба с помощью ".json".
+Дабы не перечислять все возможные необходимые параметры каждый раз когда вам потребуется запуск Selenium GRID настройки можно передать при помощи файлов nodeConfig.json и hubConfig.json.
+**Пример содержания nodeConfig.json**
+```json
+{
+  "capabilities":
+  [
+    {
+      "browserName": "firefox",
+      "marionette": true,
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
+    },
+    {
+      "browserName": "chrome",
+      "maxInstances": 2,
+      "seleniumProtocol": "WebDriver"
+    }
+  ],
+  "host": "127.0.0.1"
+  "maxSession": 4,
+  "port": -1,
+  "register": true,
+  "registerCycle": 5000,
+  "hub": "http://localhost:4444",
+  "nodeStatusCheckTimeout": 5000,
+  "nodePolling": 5000,
+  "role": "node",
+  "unregisterIfStillDownAfter": 60000,
+  "downPollingLimit": 2,
+  "debug": false,
+  "servlets" : [],
+  "withoutServlets": [],
+  "custom": {}
+}
+```
+**Пример hubConfug.json**
+```json
+{
+  "port": 4444,
+  "newSessionWaitTimeout": -1,
+  "servlets" : [],
+  "withoutServlets": [],
+  "custom": {},
+  "capabilityMatcher": "org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
+  "registry": "org.openqa.grid.internal.DefaultGridRegistry",
+  "throwOnCapabilityNotPresent": true,
+  "cleanUpCycle": 5000,
+  "role": "hub",
+  "debug": false,
+  "browserTimeout": 0,
+  "timeout": 1800
+}
+```
+Теперь для запуска нод и хаба с любыми вашими индивидуальными настройками, достаточно выполнить `java -jar selenium-server-standalone.jar -role node -nodeConfig nodeConfig.json` для нод и `java -jar selenium-server-standalone.jar -role hub -nodeConfig hubConfig.json` для хаба.
+Тесты запускаются так же как и раньше
+***
+### Автоматический запуск ХАБА и НОД
+Для упрощения процедуры запуска тестов я использую bash скрипт следующего содержания:
+```bash
+```
+Этот скрипт позволяет запустить вам хаб ноды и тесты одной командой все откроется в своей вкладке.
+Но поскольку нам всё ещё необходимо будет "гасить" хаб и ноды руками я предлагаю использовать следующий скрипт:
+```bash
+```
+он запускает хаб и ноды в фоновом режиме а после выполнения последнего теста выключает их.
+
+### Распределённый запуск ХАБА и НОД
+Дабы охватить большее число возможных операционных систем и браузеров ноды можно запускать на других машинах - как виртуальных так и физических. 
+Особых тонкостей тут не много. 
+Желательно передать в хаб и ноды **конкретный** параметр `"host": "YOUR_IP_HERE"` так как мною был замечен баг, что хаб раздаёт нодам IP адреса из произвольной подсети, из-за чего и хаб и ноды вроде бы активны, но тесты до них достучаться не могут.
+***
+## Запуск Selenium Grid в Docker
+Docker легко установить по следующей [иснтрукции](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
+После установки Docker'а необходимо скачать образ Selenium Grid:
+```bash
+docker network create grid
+```
+Теперь мы готовы запускать хаб и ноды. Делается это следующими командами:
+```
+docker run -d -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.141.59-xenon
+docker run -d --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-xenon
+docker run -d --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-firefox:3.141.59-xenon
+```
+где 4444:4444 - порт_локальной_машины:порт_внутри_контейнера, параметром `HUB_HOST=selenium-hub` мы указываем на имя нашего хаба `--name selenium-hub`
+
 
