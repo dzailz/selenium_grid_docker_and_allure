@@ -98,14 +98,41 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 ### Автоматический запуск ХАБА и НОД
 Для упрощения процедуры запуска тестов я использую bash скрипт следующего содержания:
 ```bash
+#!/bin/bash
+
+cd ~/sprint_4_SeleniumGrid
+gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role hub -hubConfig hubConfig.json; bash"
+gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role node -nodeConfig firefoxNodeConfig.json; bash"
+gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role node -nodeConfig chromeNodeConfig.json; bash"
+source ~/stepik_traineeship/env/bin/activate
+cd ~/stepik_traineeship/edy-tests/Webdriver/scripts/
+gnome-terminal -x sh -c "py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --domain=https://staging1.int.stepik.org --browser=chrome; bash"
+py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --domain=https://staging1.int.stepik.org
 ```
 Этот скрипт позволяет запустить вам хаб ноды и тесты одной командой все откроется в своей вкладке.
 Но поскольку нам всё ещё необходимо будет "гасить" хаб и ноды руками я предлагаю использовать следующий скрипт:
 ```bash
+#!/bin/bash
+
+cd ~/sprint_4_SeleniumGrid
+java -jar selenium-server-standalone.jar -role hub -hubConfig hubConfig.json &
+export hub=$!
+java -jar selenium-server-standalone.jar -role node -nodeConfig firefoxNodeConfig.json &
+export node0=$!
+java -jar selenium-server-standalone.jar -role node -nodeConfig chromeNodeConfig.json &
+export node1=$!
+source ~/stepik_traineeship/env/bin/activate
+cd ~/stepik_traineeship/edy-tests/Webdriver/scripts/
+gnome-terminal -x sh -c "py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --domain=https://staging1.int.stepik.org --browser=chrome; bash"
+py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --domain=https://staging1.int.stepik.org
+sleep 5
+kill $hub
+kill $node0
+kill $node1
 ```
 он запускает хаб и ноды в фоновом режиме а после выполнения последнего теста выключает их.
 
-### Распределённый запуск ХАБА и НОД
+### Распределённый запуск хаба и нод
 Дабы охватить большее число возможных операционных систем и браузеров ноды можно запускать на других машинах - как виртуальных так и физических. 
 Особых тонкостей тут не много. 
 Желательно передать в хаб и ноды **конкретный** параметр `"host": "YOUR_IP_HERE"` так как мною был замечен баг, что хаб раздаёт нодам IP адреса из произвольной подсети, из-за чего и хаб и ноды вроде бы активны, но тесты до них достучаться не могут.
@@ -124,4 +151,16 @@ docker run -d --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/
 ```
 где 4444:4444 - порт_локальной_машины:порт_внутри_контейнера, параметром `HUB_HOST=selenium-hub` мы указываем на имя нашего хаба `--name selenium-hub`
 
+Поскольку тесты при использовании Грида в Докере работают в headless режиме я бы рекомендовал запускать их сразу на обе ноды в несколько потоков. Сделать это можно при помощи скрипта:
+```bash
+source ~/stepik_traineeship/env/bin/activate
+cd ~/stepik_traineeship/edy-tests/Webdriver/scripts/
+echo "Starting scripts"
+gnome-terminal -x sh -c "py.test -v -s -m smoke --executor=http://127.0.0.1:4444/wd/hub --domain=https://staging1.int.stepik.org -n2; bash"
+sleep 2
+py.test -v -s -m smoke --executor=http://127.0.0.1:4444/wd/hub --domain=https://staging1.int.stepik.org --browser=chrome -n2
+```
+По завершении тестов необходимо остановить Докер и удалить неиспользуемые контейнеры:
+`docker stop $(docker ps -a -q)` - останавливает все запущенные контейнеры
+`docker rm $(docker ps -a -q)` - удаляем все остановленые контейнеры
 
