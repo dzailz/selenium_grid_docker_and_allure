@@ -1,18 +1,20 @@
 # Selenium Grid.
 ***
 
-1. [Запускаем Selenium Grid локально](#Selenium-Grid-local)
-2. [Установка openJDK](#openJDK-setup)
-3. [Подготовка к запуску Selenium GRID](#Preparing-Start-Selenium-GRID)
-4. [Запускаем Хаб и НОДы локально, передавая параметры через командную строку](#Launch-HUB-and-NODES-with-Command-Line)
-5. [Запуск тестов на Гриде](#Launch-tests-on-GRID)
-6. [Остановка запущеных НОД и ХАБа](#Stoping-NODES-and-HUB)
-7. [Добавляем настройки для нод и хаба с помощью '.json'](#json-config)
-8. [Автоматический запуск ХАБА и НОД](#Automatic-launch-HUB-and-NODES)
-9. [Распределённый запуск ХАБА и НОД](#Distributed-HUB-and-NODES-launch)
-10. [Запуск Selenium Grid в Docker](#"Selenium-Grid-Docker")
-11. [Docker-compose](#Docker-compose)
-12. [Allure-отчеты](#Allure-отчеты)
+- [Запускаем Selenium Grid локально](#Selenium-Grid-local)
+    - [Установка openJDK](#openJDK-setup)
+        - [Установка на Ubuntu 19.04](#Ubuntu-OpenJDK-Setup)
+        - [Установка на ОС Windows 7/10](#Win-OpenJDK-Setup)
+    - [Подготовка к запуску Selenium GRID](#Preparing-Start-Selenium-GRID)
+    - [Запускаем Хаб и НОДы локально, передавая параметры через командную строку](#Launch-HUB-and-NODES-with-Command-Line)
+    - [Запуск тестов на Гриде](#Launch-tests-on-GRID)
+    - [Остановка запущеных НОД и ХАБа](#Stoping-NODES-and-HUB)
+    - [Добавляем настройки для нод и хаба с помощью '.json'](#json-config)
+    - [Автоматический запуск ХАБА и НОД](#Automatic-launch-HUB-and-NODES)
+- [Распределённый запуск ХАБА и НОД](#Distributed-HUB-and-NODES-launch)
+- [Запуск Selenium Grid в Docker](#Selenium-Grid-Docker)
+- [Docker-compose](#Docker-compose)
+- [Allure-отчеты](#Allure-отчеты)
 
 
 ***
@@ -22,6 +24,7 @@
 <a name="openJDK-setup"></a>
 #### Установка openJDK
 Для работы с гридом необходимо установить Java
+<a name="Ubuntu-OpenJDK-Setup"></a>
 1. Установка на Ubuntu 19.04:<br>
 Запускаем терминал выполняем следующие команды:
 ```bash
@@ -29,11 +32,12 @@ $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую версию продукта)
 ```
-2. Установка для ОС Windows 7/10
-    - Переходим по ссылке https://jdk.java.net/13/ (13-версия, вы можете установить другую)
-    - Скачиваем архив
-    - Скачанный архив распаковываем и размещаем в удобное для вас место
-    - Необходимо прописать в PATH путь до файлов с Java
+<a name="Win-OpenJDK-Setup"></a>
+2. Установка на ОС Windows 7/10:
+    - Переходим по ссылке https://jdk.java.net/13/ (13-версия, вы можете установить другую);
+    - Скачиваем архив;
+    - Скачанный архив распаковываем и размещаем в удобное для вас место;
+    - Необходимо прописать в PATH путь до файлов с Java.
 ***
 <a name="Preparing-Start-Selenium-GRID"></a>
 #### Подготовка к запуску Selenium GRID
