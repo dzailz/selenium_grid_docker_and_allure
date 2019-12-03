@@ -25,13 +25,15 @@
 #### Установка openJDK
 Для работы с гридом необходимо установить Java
 <a name="Ubuntu-OpenJDK-Setup"></a>
-1. **Установка на Ubuntu 19.04:**<br>
+1. **Установка на Ubuntu 19.04:**
+
 Запускаем терминал выполняем следующие команды:
 ```bash
 $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую версию продукта)
 ```
+
 <a name="Win-OpenJDK-Setup"></a>
 2. **Установка на ОС Windows 7/10:**
 - Переходим по ссылке https://jdk.java.net/13/ (13-версия, вы можете установить другую);
