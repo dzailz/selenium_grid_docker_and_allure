@@ -1,4 +1,4 @@
-# Selenium Grid.
+# Selenium Grid
 ***
 
 - [Запускаем Selenium Grid локально](#Selenium-Grid-local)
