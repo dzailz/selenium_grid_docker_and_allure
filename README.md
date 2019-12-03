@@ -2,7 +2,7 @@
 ***
 
 1. [Запускаем Selenium Grid локально](#Selenium-Grid-local)
-2. [Подготовка к запуску Selenium GRID](#Preparing-Start-Selenium GRID)
+2. [Подготовка к запуску Selenium GRID](#Preparing-Start-Selenium-GRID)
 3. [Запускаем Хаб и НОДы локально, передавая параметры через командную строку](#Launch-HUB-and-NODES-with-Command-Line)
 4. [Запуск тестов на Гриде](#Launch-tests-on-GRID)
 5. [Остановка запущеных НОД и ХАБа](#Stoping-NODES-and-HUB)
@@ -35,7 +35,7 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
     - Необходимо прописать в PATH путь до файлов с Java
 ***
 #### Подготовка к запуску Selenium GRID
-<a name="Preparing-Start-Selenium GRID"></a>
+<a name="Preparing-Start-Selenium-GRID"></a>
 - Переходим по ссылке https://selenium.dev/downloads/
 - Качаем "Latest stable version". На момент написания руководства это "3.141.59"
 - Скачанный `*.jar` файл размещаем где удобно
