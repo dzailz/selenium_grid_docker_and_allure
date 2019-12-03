@@ -8,7 +8,7 @@
     - [Подготовка к запуску Selenium GRID](#Preparing-Start-Selenium-GRID)
     - [Запускаем Хаб и НОДы локально, передавая параметры через командную строку](#Launch-HUB-and-NODES-with-Command-Line)
     - [Запуск тестов на Гриде](#Launch-tests-on-GRID)
-    - [Остановка запущеных НОД и ХАБа](#Stoping-NODES-and-HUB)
+    - [Остановка запущеных НОД и ХАБА](#Stoping-NODES-and-HUB)
     - [Добавляем настройки для нод и хаба с помощью '.json'](#json-config)
     - [Автоматический запуск ХАБА и НОД](#Automatic-launch-HUB-and-NODES)
 - [Распределённый запуск ХАБА и НОД](#Distributed-HUB-and-NODES-launch)
@@ -67,7 +67,7 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 `py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --platform=windows --domain=https://staging1.int.stepik.org -n3`
 ***
 <a name="Stoping-NODES-and-HUB"></a>
-#### Остановка запущеных НОД и ХАБа
+#### Остановка запущеных НОД и ХАБА
 Для остановки запущеных процессов необходимо использовать комбинацию клавиш `CTRL+C`
 ***
 <a name="json-config"></a>
