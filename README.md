@@ -19,7 +19,7 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 #### Подготовка к запуску Selenium GRID
 - Переходим по ссылке https://selenium.dev/downloads/
 - Качаем "Latest stable version". На момент написания руководства это "3.141.59"
-- Скачанный *.jar файл размещаем где удобно
+- Скачанный `*.jar` файл размещаем где удобно
 ***
 #### Запускаем Хаб и НОДы локально, передавая параметры через командную строку
 1. Стартуем Хаб `java -jar selenium-server-standalone.jar -role hub -host 127.0.0.1.` Хаб будет доступен по адресу http://localhost:4444
@@ -74,7 +74,7 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
   "custom": {}
 }
 ```
-**Пример hubConfug.json**
+**Пример hubConfig.json**
 ```json
 {
   "port": 4444,
@@ -102,6 +102,7 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 
 cd ~/sprint_4_SeleniumGrid
 gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role hub -hubConfig hubConfig.json; bash"
+# Я назвал конфигурационные файлы в соответствии с теми браузерами которые они запускают.
 gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role node -nodeConfig firefoxNodeConfig.json; bash"
 gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role node -nodeConfig chromeNodeConfig.json; bash"
 source ~/stepik_traineeship/env/bin/activate
@@ -109,8 +110,10 @@ cd ~/stepik_traineeship/edy-tests/Webdriver/scripts/
 gnome-terminal -x sh -c "py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --domain=https://staging1.int.stepik.org --browser=chrome; bash"
 py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --domain=https://staging1.int.stepik.org
 ```
+
 Этот скрипт позволяет запустить вам хаб ноды и тесты одной командой все откроется в своей вкладке.
 Но поскольку нам всё ещё необходимо будет "гасить" хаб и ноды руками я предлагаю использовать следующий скрипт:
+
 ```bash
 #!/bin/bash
 
@@ -130,12 +133,12 @@ kill $hub
 kill $node0
 kill $node1
 ```
-он запускает хаб и ноды в фоновом режиме а после выполнения последнего теста выключает их.
+он запускает хаб и ноды в фоновом режиме, а после выполнения последнего теста выключает их.
 
 ### Распределённый запуск хаба и нод
-Дабы охватить большее число возможных операционных систем и браузеров ноды можно запускать на других машинах - как виртуальных так и физических. 
-Особых тонкостей тут не много. 
-Желательно передать в хаб и ноды **конкретный** параметр `"host": "YOUR_IP_HERE"` так как мною был замечен баг, что хаб раздаёт нодам IP адреса из произвольной подсети, из-за чего и хаб и ноды вроде бы активны, но тесты до них достучаться не могут.
+Дабы охватить большее число возможных операционных систем и браузеров ноды можно запускать на других машинах - как виртуальных так и физических.
+Особых тонкостей тут не много.
+Желательно передать в хаб и ноды **конкретный** параметр `"host": "YOUR_IP_HERE"` так как, мною был замечен баг, что, хаб раздаёт нодам IP адреса из произвольной подсети, из-за чего и хаб и ноды вроде бы активны, но тесты до них достучаться не могут.
 ***
 ## Запуск Selenium Grid в Docker
 Docker легко установить по следующей [иснтрукции](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
@@ -152,6 +155,7 @@ docker run -d --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/
 где 4444:4444 - порт_локальной_машины:порт_внутри_контейнера, параметром `HUB_HOST=selenium-hub` мы указываем на имя нашего хаба `--name selenium-hub`
 
 Поскольку тесты при использовании Грида в Докере работают в headless режиме я бы рекомендовал запускать их сразу на обе ноды в несколько потоков. Сделать это можно при помощи скрипта:
+
 ```bash
 source ~/stepik_traineeship/env/bin/activate
 cd ~/stepik_traineeship/edy-tests/Webdriver/scripts/
@@ -171,7 +175,7 @@ py.test -v -s -m smoke --executor=http://127.0.0.1:4444/wd/hub --domain=https://
 sudo apt install docker-compose
 ```
 для запуска хаба и нод необходимо создать конфигурационный файл `.yml`
-запуск происходит так же очень просто: 
+запуск происходит так же очень просто:
 ```docker-compose -f grid_hub_nodes_ff_chrome.yml up --scale chrome=2 --scale firefox=2 -d
 ```
 с такими `--scale chrome=2 --scale firefox=2` параметрами мы запустим по две ноды для хрома и файерфокса.
@@ -179,6 +183,16 @@ sudo apt install docker-compose
 ***
 ## Allure-отчеты
 Когда тесты запускаются в докер-контейнерах, довольно сложно понять, что пошло не так, когда тесты падают. Поэтому мы добавим отчеты с скриншотами, с помощью которых сможем разбираться с проблемами.
-Почему то установка из официального репозитория не работает (по крайней мере на момент написания данного руководства), поэтому я постараюсь объяснить как установить allure вручную.
+Почему-то установка из официального репозитория не работает (по крайней мере, на момент написания данного руководства), поэтому я постараюсь объяснить как установить allure вручную.
 1. Для начала перейдём по [ссылке](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/) и скачаем необходимую версию (например [2.13.0](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.0/));
-2. Распакуем в любую папку, но я бы порекомендовал использовать `~/bin`
+2. Распакуем в любую папку, но я бы порекомендовал использовать `~/bin` (её нужно будет создать)
+3. Для дальнейшего удобства запуска отчётов Allure пожно добавить в системную переменную $PATH:
+    - `nano ~/.bashrc `;
+    - В конец файла добавляем следующие строки: `export PATH="$PATH:/home/USER_NAME/bin/allure/bin"`, где USER_NAME == ваше имя пользователя.
+    - Проверить что всё работает можно командой `allure --version` и `whereis allure`
+Установка на этом завершена.
+Для начала работы нам потребуется установить ещё один пакет "allure-pytest".
+Активируем окружение в котором работаем с тестами и вводим команду: `pip install allure-pytest`.
+Приступаем к работе с отчётами.
+Тесты запускаем командой: `py.test --alluredir=~/stepik_traineeship/allure/ -v -s -m smoke --executor=http://127.0.0.1:4444/wd/hub --domain=https://staging1.int.stepik.org --browser=chrome -n2` где `--alluredir=~/stepik_traineeship/allure/` - папка где храняться отчёты по тестам.
+Посмотреть как выглядят отчёты можно командой `allure serve /путь_до_папки_с_отчётами`.
