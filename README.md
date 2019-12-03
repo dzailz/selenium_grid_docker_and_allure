@@ -107,7 +107,7 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 - `java -jar selenium-server-standalone.jar -role node -nodeConfig nodeConfig.json` для нод и;
 - `java -jar selenium-server-standalone.jar -role hub -nodeConfig hubConfig.json` для хаба.
 
-Тесты запускаются так-же как и раньше.
+Тесты запускаются также как и раньше.
 ***
 ### Автоматический запуск ХАБА и НОД
 <a name="Автоматический запуск ХАБА и НОД"></a>
@@ -117,7 +117,7 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 
 cd ~/sprint_4_SeleniumGrid
 gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role hub -hubConfig hubConfig.json; bash"
-# Я назвал конфигурационные файлы в соответствии с теми браузерами которые они запускают.
+# Я назвал конфигурационные файлы в соответствии с теми браузерами, которые они запускают.
 gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role node -nodeConfig firefoxNodeConfig.json; bash"
 gnome-terminal -x sh -c "java -jar selenium-server-standalone.jar -role node -nodeConfig chromeNodeConfig.json; bash"
 source ~/stepik_traineeship/env/bin/activate
@@ -153,7 +153,7 @@ kill $node1
 
 ### Распределённый запуск ХАБа и НОД
 <a name="Распределённый запуск ХАБА и НОД"></a>
-Дабы охватить большее число возможных операционных систем и браузеров, ноды можно запускать на других машинах - как виртуальных так и физических.
+Дабы охватить большее число возможных операционных систем и браузеров, ноды можно запускать на других машинах - как виртуальных, так и физических.
 Особых тонкостей тут не много.<br>
 Желательно передать в хаб и ноды **конкретный** параметр `"host": "YOUR_IP_HERE"` так-как, мною был замечен баг, что хаб раздаёт нодам IP адреса из произвольной подсети, из-за чего и хаб и ноды вроде бы активны, но тесты до них достучаться не могут.
 ***
@@ -184,7 +184,7 @@ py.test -v -s -m smoke --executor=http://127.0.0.1:4444/wd/hub --domain=https://
 ```
 По завершении тестов необходимо остановить выполняемые контейнеры и удалить их:
 - `docker stop $(docker ps -a -q)` - останавливает все запущенные контейнеры;
-- `docker rm $(docker ps -a -q)` - удаляем все остановленые контейнеры.
+- `docker rm $(docker ps -a -q)` - удаляем все остановленные контейнеры.
 ***
 ## Docker-compose
 <a name="Docker-compose"></a>
@@ -232,8 +232,8 @@ docker-compose -f grid_hub_nodes_ff_chrome.yml up --scale chrome=2 --scale firef
 ## Allure-отчеты
 <a name="Allure-отчеты"></a>
 Когда тесты запускаются в докер-контейнерах, довольно сложно понять, что пошло не так, когда тесты падают. Поэтому мы добавим отчеты с скриншотами, с помощью которых сможем разбираться с проблемами.<br>
-Почему-то установка из официального репозитория не работает (по крайней мере, на момент написания данного руководства), поэтому, я постараюсь объяснить как установить Allure вручную.
-1. Для начала перейдём по [ссылке](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/) и скачаем необходимую версию (например [2.13.0](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.0/));
+Почему-то установка из официального репозитория не работает (по крайней мере, на момент написания данного руководства), поэтому, я постараюсь объяснить, как установить Allure вручную.
+1. Для начала перейдём по [ссылке](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/) и скачаем необходимую версию (например, [2.13.0](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.0/));
 2. Распакуем в любую папку, но я бы порекомендовал использовать `~/bin` (её нужно будет создать)
 3. Для дальнейшего удобства запуска отчётов, Allure нужно добавить в системную переменную $PATH:
     - Выполняем в терминале команду: `nano ~/.bashrc `;
@@ -243,7 +243,7 @@ docker-compose -f grid_hub_nodes_ff_chrome.yml up --scale chrome=2 --scale firef
 На этом установка завершена.
 
 Для начала работы нам потребуется установить ещё один пакет: "allure-pytest".
-Активируем окружение в котором работаем с тестами и вводим команду: `pip install allure-pytest`.
+Активируем окружение, в котором работаем с тестами и вводим команду: `pip install allure-pytest`.
 
 **Приступаем к работе с отчётами**.
 
@@ -253,4 +253,4 @@ py.test --alluredir=~/stepik_traineeship/allure/ -v -s -m smoke --executor=http:
 ```
 где `--alluredir=~/stepik_traineeship/allure/` - папка с хранящимися отчётами по тестам.
 
-Посмотреть как выглядят отчёты можно командой: `allure serve /путь_до_папки_с_отчётами`.
+Посмотреть, как выглядят отчёты можно командой: `allure serve /путь_до_папки_с_отчётами`.
