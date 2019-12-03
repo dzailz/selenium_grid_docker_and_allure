@@ -15,8 +15,8 @@
 
 
 ***
-## Запускаем Selenium Grid локально.
 <a name="Selenium-Grid-local"></a>
+## Запускаем Selenium Grid локально.
 ***
 #### Установка openJDK
 <a name="Установка openJDK"></a>
