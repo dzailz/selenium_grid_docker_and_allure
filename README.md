@@ -1,4 +1,5 @@
 # Selenium Grid.
+[TOC]
 ## Запускаем Selenium Grid локально.
 ***
 #### Установка openJDK
