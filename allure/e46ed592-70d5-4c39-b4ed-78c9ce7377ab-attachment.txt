@@ -1,0 +1,237 @@
+INFO     Webdriver.scripts.api.api:api.py:26 !!!domain = https://staging1.int.stepik.org
+INFO     Webdriver.scripts.api.api:api.py:29 api_token_url = https://staging1.int.stepik.org/oauth2/token/
+INFO     Webdriver.scripts.api.api:api.py:31 api_lessons_url = https://staging1.int.stepik.org/api/lessons
+INFO     Webdriver.scripts.api.api:api.py:75 client_id = , client_secret = 
+INFO     Webdriver.scripts.api.api:api.py:26 !!!domain = https://staging1.int.stepik.org
+INFO     Webdriver.scripts.api.api:api.py:29 api_token_url = https://staging1.int.stepik.org/oauth2/token/
+INFO     Webdriver.scripts.api.api:api.py:31 api_lessons_url = https://staging1.int.stepik.org/api/lessons
+INFO     Webdriver.scripts.api.api:api.py:75 client_id = , client_secret = 
+DEBUG    requests.packages.urllib3.connectionpool:connectionpool.py:809 Starting new HTTPS connection (1): staging1.int.stepik.org
+DEBUG    requests.packages.urllib3.connectionpool:connectionpool.py:400 https://staging1.int.stepik.org:443 "GET / HTTP/1.1" 200 None
+INFO     Webdriver.scripts.api.api:api.py:114 api_url = https://staging1.int.stepik.org/api/users
+DEBUG    requests.packages.urllib3.connectionpool:connectionpool.py:400 https://staging1.int.stepik.org:443 "POST /api/users HTTP/1.1" 201 824
+INFO     Webdriver.scripts.api.api:api.py:138 New User Data = {'id': 88934, 'profile': 88934, 'is_private': False, 'is_active': True, 'is_guest': False, 'is_organization': False, 'short_bio': '', 'details': '', 'first_name': 'robot1575375803.707561', 'last_name': '1575375803.707561', 'full_name': 'robot1575375803.707561 1575375803.707561', 'alias': None, 'avatar': 'https://staging1.int.stepik.org/users/88934/4ce5ce6ff932688aad15bf6002733b9dadaef186/avatar.svg', 'cover': None, 'city': None, 'level': 1, 'level_title': 'user', 'knowledge': 0, 'knowledge_rank': None, 'reputation': 0, 'reputation_rank': None, 'join_date': '2019-12-03T12:23:23.888Z', 'social_profiles': [], 'solved_steps_count': 0, 'created_courses_count': 0, 'created_lessons_count': 0, 'issued_certificates_count': 0, 'followers_count': 0}
+INFO     Webdriver.scripts.api.api:api.py:143 new_cookies are created= {'csrftoken': 'nsAkiqB5xaPlKfE0P4n8vwtf7cyfYpElBYelXQXc57VMQQI7cfZdzoT9yfNoy0gy', 'sessionid': 'g0whc5pbgbfx42tyj7t7serm0tfedgoj'}
+INFO     Webdriver.scripts.api.api:api.py:582 new lesson post data = {'lesson': {'title': 'lesson by test robot', 'owner': 88934, 'is_comments_enabled': True, 'is_public': True, 'lti_consumer_key': None, 'lti_secret_key': None}}
+DEBUG    requests.packages.urllib3.connectionpool:connectionpool.py:400 https://staging1.int.stepik.org:443 "POST /api/lessons HTTP/1.1" 201 1250
+INFO     Webdriver.scripts.api.api:api.py:586 new lesson response = {'meta': {'page': 1, 'has_next': False, 'has_previous': False}, 'lessons': [{'id': 25102, 'steps': [], 'actions': {'learn_lesson': '#', 'assist_lesson': '#', 'view_all_submissions': '#', 'edit_lesson': '#', 'view_statistics': '/lesson/25102/stats/', 'attachments': '/lesson/25102/attachments/', 'clone_lesson': '/lesson/25102/clone/', 'edit_permissions': '/lesson/25102/permissions/', 'delete_lesson': '#'}, 'progress': '1-25102', 'subscriptions': ['31-1-25102', '30-1-25102'], 'viewed_by': 0, 'passed_by': 0, 'time_to_complete': None, 'cover_url': None, 'is_comments_enabled': True, 'is_exam_without_progress': False, 'owner': 88934, 'language': 'en', 'is_featured': False, 'is_public': True, 'title': 'lesson by test robot', 'slug': 'lesson-by-test-robot-25102', 'create_date': '2019-12-03T12:23:24.076Z', 'update_date': '2019-12-03T12:23:24.076Z', 'learners_group': 210383, 'testers_group': 210384, 'moderators_group': 210385, 'assistants_group': 210386, 'teachers_group': 210382, 'admins_group': 210387, 'discussions_count': 0, 'discussion_proxy': '1-25102-1', 'discussion_threads': ['1-25102-1'], 'epic_count': 0, 'abuse_count': 0, 'vote_delta': 0, 'vote': '1-25102', 'lti_consumer_key': '', 'lti_secret_key': '', 'lti_private_profile': False}]}
+DEBUG    Webdriver.scripts.api.api:api.py:588 Lesson url = https://staging1.int.stepik.org/api/lessons/25102
+DEBUG    Webdriver.scripts.api.api:api.py:590 Lesson id = 25102
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "chrome", "platformName": "linux", "goog:chromeOptions": {"prefs": {"intl.accept_languages": "en"}, "extensions": [], "args": ["user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"]}}}, "desiredCapabilities": {"browserName": "chrome", "version": null, "platform": "linux", "loggingPrefs": {"browser": "ALL"}, "goog:chromeOptions": {"prefs": {"intl.accept_languages": "en"}, "extensions": [], "args": ["user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"]}, "javascriptEnabled": true}}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session HTTP/1.1" 200 950
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/window/rect {"x": null, "y": null, "width": 1336, "height": 1000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/window/rect HTTP/1.1" 200 52
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     Webdriver.scripts.conftest:conftest.py:286 desktop version
+DEBUG    requests.packages.urllib3.connectionpool:connectionpool.py:400 https://staging1.int.stepik.org:443 "POST /api/step-sources HTTP/1.1" 201 1235
+INFO     Webdriver.scripts.api.api:api.py:671 new step = {'meta': {'page': 1, 'has_next': False, 'has_previous': False}, 'step-sources': [{'id': 27234, 'lesson': 25102, 'position': 1, 'status': 'preparing', 'block': {'name': 'matching', 'text': '<p>This is your new problem step (matching)!</p>', 'video': None, 'options': {}, 'subtitle_files': [], 'source': {'preserve_firsts_order': True, 'pairs': [{'first': 'Sky', 'second': 'Blue'}, {'first': 'Sun', 'second': 'Orange'}]}, 'subtitles': {}, 'tests_archive': None, 'feedback_correct': '', 'feedback_wrong': ''}, 'actions': {'edit_instructions': '#', 'submit': '#'}, 'progress': '68-27234', 'subscriptions': ['31-68-27234', '30-68-27234'], 'instruction': None, 'session': None, 'instruction_type': None, 'viewed_by': 0, 'passed_by': 0, 'correct_ratio': None, 'worth': 0, 'is_solutions_unlocked': False, 'solutions_unlocked_attempts': 3, 'has_submissions_restrictions': False, 'max_submissions_count': 3, 'variation': 1, 'variations_count': 1, 'create_date': '2019-12-03T12:23:26.472Z', 'update_date': '2019-12-03T12:23:26.926Z', 'discussions_count': 0, 'discussion_proxy': '68-27234-1', 'discussion_threads': ['68-27234-1', '68-27234-2'], 'reason_of_failure': '', 'error': {'text': '', 'code': '', 'params': {}}, 'warnings': [], 'cost': 1}]}
+INFO     Webdriver.scripts.api.api:api.py:1531 step_url = https://staging1.int.stepik.org/lesson/25102/step/1
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/url {"url": "https://staging1.int.stepik.org/lesson/25102/step/1"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/url HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync {"script": "return (function getApplication() {let namespaces = Ember.Namespace.NAMESPACES;let application;namespaces.forEach(namespace => {if (namespace instanceof Ember.Application) {application = namespace;return false;}});return application;})().__container__.lookup('service:ab').get('ab_control_group_1')", "args": []}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     Webdriver.scripts.pages.stepik_base_page:stepik_base_page.py:141 is current user in group ab_control_group_1 : None 
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync {"script": "return (function getApplication() {let namespaces = Ember.Namespace.NAMESPACES;let application;namespaces.forEach(namespace => {if (namespace instanceof Ember.Application) {application = namespace;return false;}});return application;})().__container__.lookup('service:ab').get('ab_control_group_2')", "args": []}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     Webdriver.scripts.pages.stepik_base_page:stepik_base_page.py:141 is current user in group ab_control_group_2 : None 
+INFO     Webdriver.scripts.pages.stepik_base_page:stepik_base_page.py:106 ab tests: {'ab_control_group_1': None, 'ab_control_group_2': None}
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync {"script": "var orig = $.ajax;window.pendingRequests = 0;$.ajax = function() { window.pendingRequests++; return orig.apply(this, arguments).always(() => {   window.pendingRequests--; });}", "args": []}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".rich-text-viewer"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/aef22285-94c3-41b9-ac23-6acf65a49f74/displayed {"id": "aef22285-94c3-41b9-ac23-6acf65a49f74"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/aef22285-94c3-41b9-ac23-6acf65a49f74/displayed HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".rich-text-viewer"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/aef22285-94c3-41b9-ac23-6acf65a49f74/text {"id": "aef22285-94c3-41b9-ac23-6acf65a49f74"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/aef22285-94c3-41b9-ac23-6acf65a49f74/text HTTP/1.1" 200 53
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".rich-text-viewer"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/aef22285-94c3-41b9-ac23-6acf65a49f74/text {"id": "aef22285-94c3-41b9-ac23-6acf65a49f74"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/aef22285-94c3-41b9-ac23-6acf65a49f74/text HTTP/1.1" 200 53
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 1000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": "button.expand"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 404 242
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     Webdriver.scripts.pages.lesson_player_page:lesson_player_page.py:336 After waiting reset button logic: 1.09791898727417 seconds
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 1000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".attempt__inner > .attempt"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/7bc175c3-bfcc-4256-a42d-d09f9ad37022/displayed {"id": "7bc175c3-bfcc-4256-a42d-d09f9ad37022"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/7bc175c3-bfcc-4256-a42d-d09f9ad37022/displayed HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".matching-quiz__right .dnd-quiz__item:nth-child(1) .dnd-quiz__item-content"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/fb9d4b7e-cbbc-4b90-b2fd-f6cdc35029c7/text {"id": "fb9d4b7e-cbbc-4b90-b2fd-f6cdc35029c7"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/fb9d4b7e-cbbc-4b90-b2fd-f6cdc35029c7/text HTTP/1.1" 200 16
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": "button.submit-submission"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync {"script": "return window.pendingRequests;", "args": []}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync HTTP/1.1" 200 11
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync {"script": "return window.pendingRequests;", "args": []}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync HTTP/1.1" 200 11
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/97a29935-fd5e-448b-8b36-ce5f629c3a58/enabled {"id": "97a29935-fd5e-448b-8b36-ce5f629c3a58"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/97a29935-fd5e-448b-8b36-ce5f629c3a58/enabled HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync {"script": "return arguments[0].scrollIntoView(true);", "args": [{"ELEMENT": "97a29935-fd5e-448b-8b36-ce5f629c3a58", "element-6066-11e4-a52e-4f735466cecf": "97a29935-fd5e-448b-8b36-ce5f629c3a58"}]}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync {"script": "window.scrollBy(0, -60);", "args": []}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/execute/sync HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": "button.submit-submission"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/97a29935-fd5e-448b-8b36-ce5f629c3a58/click {"id": "97a29935-fd5e-448b-8b36-ce5f629c3a58"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/97a29935-fd5e-448b-8b36-ce5f629c3a58/click HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".correct"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/690ac5ad-b7d6-4762-9cb5-3ee47a027f44/displayed {"id": "690ac5ad-b7d6-4762-9cb5-3ee47a027f44"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/690ac5ad-b7d6-4762-9cb5-3ee47a027f44/displayed HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".attempt__message"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/7547a337-6b9c-47f4-a48b-815dcd26854d/displayed {"id": "7547a337-6b9c-47f4-a48b-815dcd26854d"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/7547a337-6b9c-47f4-a48b-815dcd26854d/displayed HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": ".attempt__message"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/7547a337-6b9c-47f4-a48b-815dcd26854d/text {"id": "7547a337-6b9c-47f4-a48b-815dcd26854d"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/7547a337-6b9c-47f4-a48b-815dcd26854d/text HTTP/1.1" 200 20
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": "button.again-btn"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/9e3a4bca-0c4e-47fe-94f0-77a676763303/click {"id": "9e3a4bca-0c4e-47fe-94f0-77a676763303"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/9e3a4bca-0c4e-47fe-94f0-77a676763303/click HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element {"using": "css selector", "value": "button.submit-submission"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element HTTP/1.1" 200 88
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 GET http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/8e2f7b99-efcd-4772-b4bc-f3e1fe3fc4b0/displayed {"id": "8e2f7b99-efcd-4772-b4bc-f3e1fe3fc4b0"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "GET /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/element/8e2f7b99-efcd-4772-b4bc-f3e1fe3fc4b0/displayed HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts {"implicit": 30000}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/timeouts HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 POST http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/log {"type": "browser"}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "POST /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/log HTTP/1.1" 200 1166
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     Webdriver.scripts.conftest:conftest.py:297 -----browser errors begin-----
+ERROR    Webdriver.scripts.conftest:conftest.py:300 {'level': 'SEVERE', 'message': 'https://staging1.int.stepik.org/api/votes/1-25102 - Failed to load resource: the server responded with a status of 403 ()', 'source': 'network', 'timestamp': 1575375811125}
+INFO     Webdriver.scripts.conftest:conftest.py:301 -----browser errors end-----
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 DELETE http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/cookie {}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "DELETE /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752/cookie HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:389 DELETE http://127.0.0.1:4444/wd/hub/session/1aac0fe808aed8d412cde784f4b6f752 {}
+DEBUG    urllib3.connectionpool:connectionpool.py:225 Starting new HTTP connection (1): 127.0.0.1:4444
+DEBUG    urllib3.connectionpool:connectionpool.py:437 http://127.0.0.1:4444 "DELETE /wd/hub/session/1aac0fe808aed8d412cde784f4b6f752 HTTP/1.1" 200 14
+DEBUG    selenium.webdriver.remote.remote_connection:remote_connection.py:440 Finished Request
+INFO     Webdriver.scripts.conftest:conftest.py:320 close driver now
+DEBUG    requests.packages.urllib3.connectionpool:connectionpool.py:400 https://staging1.int.stepik.org:443 "DELETE /api/lessons/25102 HTTP/1.1" 204 0
+INFO     Webdriver.scripts.api.api:api.py:1515 Lesson id=25102 has been successfully deleted
