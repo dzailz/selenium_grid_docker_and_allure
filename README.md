@@ -2,24 +2,25 @@
 ***
 
 1. [Запускаем Selenium Grid локально](#Selenium-Grid-local)
-2. [Подготовка к запуску Selenium GRID](#Preparing-Start-Selenium-GRID)
-3. [Запускаем Хаб и НОДы локально, передавая параметры через командную строку](#Launch-HUB-and-NODES-with-Command-Line)
-4. [Запуск тестов на Гриде](#Launch-tests-on-GRID)
-5. [Остановка запущеных НОД и ХАБа](#Stoping-NODES-and-HUB)
-6. [Добавляем настройки для нод и хаба с помощью '.json'](#json-config)
-7. [Автоматический запуск ХАБА и НОД](#Automatic-launch-HUB-and-NODES)
-8. [Распределённый запуск ХАБА и НОД](#Distributed-HUB-and-NODES-launch)
-9. [Запуск Selenium Grid в Docker](#"Selenium-Grid-Docker")
-10. [Docker-compose](#Docker-compose)
-11. [Allure-отчеты](#Allure-отчеты)
+2. [Установка openJDK](#openJDK-setup)
+3. [Подготовка к запуску Selenium GRID](#Preparing-Start-Selenium-GRID)
+4. [Запускаем Хаб и НОДы локально, передавая параметры через командную строку](#Launch-HUB-and-NODES-with-Command-Line)
+5. [Запуск тестов на Гриде](#Launch-tests-on-GRID)
+6. [Остановка запущеных НОД и ХАБа](#Stoping-NODES-and-HUB)
+7. [Добавляем настройки для нод и хаба с помощью '.json'](#json-config)
+8. [Автоматический запуск ХАБА и НОД](#Automatic-launch-HUB-and-NODES)
+9. [Распределённый запуск ХАБА и НОД](#Distributed-HUB-and-NODES-launch)
+10. [Запуск Selenium Grid в Docker](#"Selenium-Grid-Docker")
+11. [Docker-compose](#Docker-compose)
+12. [Allure-отчеты](#Allure-отчеты)
 
 
 ***
 <a name="Selenium-Grid-local"></a>
 ## Запускаем Selenium Grid локально.
 ***
+<a name="openJDK-setup"></a>
 #### Установка openJDK
-<a name="Установка openJDK"></a>
 Для работы с гридом необходимо установить Java
 1. Установка на Ubuntu 19.04:<br>
 Запускаем терминал выполняем следующие команды:
@@ -34,14 +35,15 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
     - Скачанный архив распаковываем и размещаем в удобное для вас место
     - Необходимо прописать в PATH путь до файлов с Java
 ***
-#### Подготовка к запуску Selenium GRID
 <a name="Preparing-Start-Selenium-GRID"></a>
+#### Подготовка к запуску Selenium GRID
 - Переходим по ссылке https://selenium.dev/downloads/
 - Качаем "Latest stable version". На момент написания руководства это "3.141.59"
 - Скачанный `*.jar` файл размещаем где удобно
 ***
-#### Запускаем Хаб и НОДы локально, передавая параметры через командную строку
+
 <a name="Launch-HUB-and-NODES-with-Command-Line"></a>
+#### Запускаем Хаб и НОДы локально, передавая параметры через командную строку
 1. Стартуем Хаб `java -jar selenium-server-standalone.jar -role hub -host 127.0.0.1.` Хаб будет доступен по адресу http://localhost:4444
 2. Стартуем НОДы `java -jar selenium-server-standalone.jar -role node -hub http://localhost:4444`
 
@@ -52,18 +54,18 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 
 **Теперь мы готовы запускать тесты на гриде!**
 ***
-#### Запуск тестов на Гриде
 <a name="Launch-tests-on-GRID"></a>
+#### Запуск тестов на Гриде
 Для запуска тестов на гриде необходимо в "pytest" передать параметр `--executor=http://localhost:4444/wd/hub`
 строка запуска может иметь следующий вид:<br>
 `py.test -v -s -m smoke --executor=http://localhost:4444/wd/hub --platform=windows --domain=https://staging1.int.stepik.org -n3`
 ***
-#### Остановка запущеных НОД и ХАБа
 <a name="Stoping-NODES-and-HUB"></a>
+#### Остановка запущеных НОД и ХАБа
 Для остановки запущеных процессов необходимо использовать комбинацию клавиш `CTRL+C`
 ***
-### Добавляем настройки для нод и хаба с помощью ".json"
 <a name="json-config"></a>
+### Добавляем настройки для нод и хаба с помощью ".json"
 Дабы не перечислять все возможные необходимые параметры каждый раз когда вам потребуется запуск Selenium GRID, настройки можно передать при помощи файлов "nodeConfig.json" и "hubConfig.json".
 
 **Пример содержания nodeConfig.json**
@@ -124,8 +126,8 @@ $ sudo apt install openjdk-13-jdk (вы вольны выбрать другую
 
 Тесты запускаются также как и раньше.
 ***
-### Автоматический запуск ХАБА и НОД
 <a name="Automatic-launch-HUB-and-NODES"></a>
+### Автоматический запуск ХАБА и НОД
 Для упрощения процедуры запуска тестов я использую bash скрипт следующего содержания:
 ```bash
 #!/bin/bash
@@ -166,14 +168,14 @@ kill $node1
 ```
 Он запускает хаб и ноды в фоновом режиме, а после выполнения последнего теста, выключает их.
 
-### Распределённый запуск ХАБа и НОД
 <a name="Distributed-HUB-and-NODES-launch"></a>
+## Распределённый запуск ХАБа и НОД
 Дабы охватить большее число возможных операционных систем и браузеров, ноды можно запускать на других машинах - как виртуальных, так и физических.
 Особых тонкостей тут не много.<br>
 Желательно передать в хаб и ноды **конкретный** параметр `"host": "YOUR_IP_HERE"` так-как, мною был замечен баг, что хаб раздаёт нодам IP адреса из произвольной подсети, из-за чего и хаб и ноды вроде бы активны, но тесты до них достучаться не могут.
 ***
-## Запуск Selenium Grid в Docker
 <a name="Selenium-Grid-Docker"></a>
+## Запуск Selenium Grid в Docker
 Docker легко установить по следующей [иснтрукции](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04).<br>
 После установки Docker'а необходимо скачать образ Selenium Grid, и запустить его:
 ```bash
@@ -201,8 +203,8 @@ py.test -v -s -m smoke --executor=http://127.0.0.1:4444/wd/hub --domain=https://
 - `docker stop $(docker ps -a -q)` - останавливает все запущенные контейнеры;
 - `docker rm $(docker ps -a -q)` - удаляем все остановленные контейнеры.
 ***
-## Docker-compose
 <a name="Docker-compose"></a>
+## Docker-compose
 Теперь запустим наши тесты использую Docker-Compose:
 
 Для начала установим его:
@@ -244,8 +246,8 @@ docker-compose -f grid_hub_nodes_ff_chrome.yml up --scale chrome=2 --scale firef
 Передав  параметры: `--scale chrome=2 --scale firefox=2`, мы запустим по две ноды для хрома и файерфокса.
 Что бы остановить ноды и хаб, необходимо выполнить команду: `docker-compose down`.
 ***
-## Allure-отчеты
 <a name="Allure-отчеты"></a>
+## Allure-отчеты
 Когда тесты запускаются в докер-контейнерах, довольно сложно понять, что пошло не так, когда тесты падают. Поэтому мы добавим отчеты с скриншотами, с помощью которых сможем разбираться с проблемами.<br>
 Почему-то установка из официального репозитория не работает (по крайней мере, на момент написания данного руководства), поэтому, я постараюсь объяснить, как установить Allure вручную.
 1. Для начала перейдём по [ссылке](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/) и скачаем необходимую версию (например, [2.13.0](http://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.13.0/));
